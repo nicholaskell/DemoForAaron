@@ -34,6 +34,9 @@ If the file needs major changes, rewrite it with a better structure.
 If you think additional files (like env or group_vars) would help, describe them at the top of your response before providing improved file content.
 If the file is already optimal, just confirm it.
 
+Above all, make sure that any comments that you make in the file are commented properly, maintaining an operable file. 
+
+
 Return the improved file content in YAML (if it's a YAML-based file) or the suggested format.
 If you propose new directories or files, list them at the top before providing this file’s improved content.
 """
@@ -71,7 +74,7 @@ try:
             original_content = f.read()
 
         # Call the OpenAI API to improve the file
-        response = client.chat.completions.create(model="gpt-4",
+        response = client.chat.completions.create(model="gpt-4o-mini",
             messages=[
                 {"role": "system", "content": SYSTEM_MESSAGE},
                 {"role": "user", "content": original_content}
